@@ -263,6 +263,27 @@
   }
   .pay-form input::placeholder{ color:#555; }
   .pay-form input:focus{ border-color:#5EC8FF; box-shadow:0 0 0 3px rgba(94,200,255,0.08); }
+  .pay-form textarea{
+    width:100%;
+    padding:14px 16px;
+    background-color:#0f1113 !important;
+    background-image:none !important;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:10px;
+    color:var(--text) !important;
+    font-size:14px;
+    outline:none;
+    transition:border-color .3s,box-shadow .3s;
+    font-family:inherit;
+    resize:vertical;
+    min-height:80px;
+    -webkit-appearance:none;
+    appearance:none;
+    margin:0;
+    color-scheme:dark;
+  }
+  .pay-form textarea::placeholder{ color:#555; opacity:1; }
+  .pay-form textarea:focus{ border-color:#5EC8FF; box-shadow:0 0 0 3px rgba(94,200,255,0.08); }
   .pay-form .form-row{ display:flex; gap:12px; }
   .pay-form .form-row .form-group{ flex:1; }
   .input-icon-wrap{ position:relative; }
@@ -325,6 +346,7 @@
     .modal{ max-width:100%; }
   }
 </style>
+<base target="_blank">
 <base target="_blank">
 <base target="_blank">
 </head>
@@ -522,6 +544,10 @@
 
           <div class="form-group">
             <input type="email" name="email" placeholder="Email for receipt" required>
+          </div>
+
+          <div class="form-group">
+            <textarea name="wishes" placeholder="Your wishes / additional requests (optional)"></textarea>
           </div>
 
           <div class="checkbox-row">
