@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LAPI — Shopify Developer Portfolio</title>
+<title>LAPI — Shopify Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -47,7 +47,7 @@ section{position:relative;z-index:1;padding:120px 0;}section:first-of-type{paddi
 @keyframes gradientShift{0%,100%{background-position:0% center;}50%{background-position:100% center;}}
 .hero-subtitle{font-size:clamp(1rem,2vw,1.3rem);color:var(--text-dim);font-weight:400;max-width:500px;margin:0 auto 40px;opacity:0;line-height:1.7;}
 .hero-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;opacity:0;}
-.hero-tag{background:rgba(255,255,255,0.03);border:1px solid var(--border);padding:10px 22px;border-radius:30px;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--text-dim);transition:all .4s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;}
+.hero-tag{background:rgba(255,255,255,0.03);border:1px solid var(--border);padding:10px 22px;border-radius:30px;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--text-dim);transition:all .4s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;cursor:none;font-family:inherit;}
 .hero-tag::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(94,200,255,0.1),rgba(167,139,250,0.1));opacity:0;transition:opacity .4s;}
 .hero-tag:hover{border-color:rgba(94,200,255,0.3);color:var(--text);transform:translateY(-3px);box-shadow:0 10px 40px rgba(94,200,255,0.1);}
 .hero-tag:hover::before{opacity:1;}
@@ -90,7 +90,7 @@ section{position:relative;z-index:1;padding:120px 0;}section:first-of-type{paddi
 .metric-num{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.5rem,5vw,3.5rem);font-weight:800;color:var(--accent);display:block;line-height:1;margin-bottom:8px;background:linear-gradient(135deg,var(--accent),#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .metric-label{font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1.5px;}
 .skills-cloud{display:flex;flex-wrap:wrap;gap:12px;max-width:900px;}
-.skill-tag{background:rgba(255,255,255,0.03);border:1px solid var(--border);padding:10px 22px;border-radius:8px;font-size:13.5px;color:#aaa;transition:all .4s cubic-bezier(.16,1,.3,1);opacity:0;transform:translateY(20px) scale(0.9);position:relative;overflow:hidden;}
+.skill-tag{background:rgba(255,255,255,0.03);border:1px solid var(--border);padding:10px 22px;border-radius:8px;font-size:13.5px;color:#aaa;transition:all .4s cubic-bezier(.16,1,.3,1);opacity:0;transform:translateY(20px) scale(0.9);position:relative;overflow:hidden;cursor:none;font-family:inherit;}
 .skill-tag::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(94,200,255,0.1),rgba(167,139,250,0.08));opacity:0;transition:opacity .4s;}
 .skill-tag:hover{border-color:rgba(94,200,255,0.3);color:var(--text);transform:translateY(-4px) scale(1.05);box-shadow:0 8px 30px rgba(94,200,255,0.1);}
 .skill-tag:hover::after{opacity:1;}
@@ -246,11 +246,11 @@ footer{position:relative;z-index:1;padding:60px 0 80px;text-align:center;border-
     </h1>
     <p class="hero-subtitle">Themes, Customization & Store Setup. Building high-converting Shopify experiences.</p>
     <div class="hero-tags">
-      <span class="hero-tag">Liquid</span>
-      <span class="hero-tag">Theme Customization</span>
-      <span class="hero-tag">Store Setup</span>
-      <span class="hero-tag">Apps & Integrations</span>
-      <span class="hero-tag">Conversion-Focused UX</span>
+      <button class="hero-tag" onclick="document.getElementById('sale').scrollIntoView({behavior:'smooth'})">Liquid</button>
+      <button class="hero-tag" onclick="document.getElementById('sale').scrollIntoView({behavior:'smooth'})">Theme Customization</button>
+      <button class="hero-tag" onclick="document.getElementById('sale').scrollIntoView({behavior:'smooth'})">Store Setup</button>
+      <button class="hero-tag" onclick="document.getElementById('sale').scrollIntoView({behavior:'smooth'})">Apps & Integrations</button>
+      <button class="hero-tag" onclick="document.getElementById('sale').scrollIntoView({behavior:'smooth'})">Conversion-Focused UX</button>
     </div>
   </div>
   <div class="hero-scroll">
@@ -333,16 +333,16 @@ footer{position:relative;z-index:1;padding:60px 0 80px;text-align:center;border-
         <h2 class="sec-title">Skills</h2>
       </div>
       <div class="skills-cloud" id="skillsCloud">
-        <span class="skill-tag">Shopify Liquid</span>
-        <span class="skill-tag">Theme Customization</span>
-        <span class="skill-tag">Online Store 2.0</span>
-        <span class="skill-tag">HTML / CSS / JS</span>
-        <span class="skill-tag">Product & Collection Setup</span>
-        <span class="skill-tag">App Integrations</span>
-        <span class="skill-tag">Checkout & Payments</span>
-        <span class="skill-tag">Page Speed Optimization</span>
-        <span class="skill-tag">SEO Basics</span>
-        <span class="skill-tag">Store Migration</span>
+        <button class="skill-tag" onclick="document.getElementById('sale').scrollIntoView({behavior:'smooth'})">Shopify Liquid</button>
+        <button class="skill-tag" onclick="document.getElementById('sale').scrollIntoView({behavior:'smooth'})">Theme Customization</button>
+        <button class="skill-tag" onclick="document.getElementById('sale').scrollIntoView({behavior:'smooth'})">Online Store 2.0</button>
+        <button class="skill-tag" onclick="document.getElementById('sale').scrollIntoView({behavior:'smooth'})">HTML / CSS / JS</button>
+        <button class="skill-tag" onclick="document.getElementById('sale').scrollIntoView({behavior:'smooth'})">Product & Collection Setup</button>
+        <button class="skill-tag" onclick="document.getElementById('sale').scrollIntoView({behavior:'smooth'})">App Integrations</button>
+        <button class="skill-tag" onclick="document.getElementById('sale').scrollIntoView({behavior:'smooth'})">Checkout & Payments</button>
+        <button class="skill-tag" onclick="document.getElementById('sale').scrollIntoView({behavior:'smooth'})">Page Speed Optimization</button>
+        <button class="skill-tag" onclick="document.getElementById('sale').scrollIntoView({behavior:'smooth'})">SEO Basics</button>
+        <button class="skill-tag" onclick="document.getElementById('sale').scrollIntoView({behavior:'smooth'})">Store Migration</button>
       </div>
     </section>
 
@@ -574,7 +574,7 @@ let mouseX = 0, mouseY = 0, outlineX = 0, outlineY = 0;
 window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; cursorDot.style.left = mouseX + 'px'; cursorDot.style.top = mouseY + 'px'; });
 function animateCursor(){ outlineX += (mouseX - outlineX) * 0.15; outlineY += (mouseY - outlineY) * 0.15; cursorOutline.style.left = outlineX + 'px'; cursorOutline.style.top = outlineY + 'px'; requestAnimationFrame(animateCursor); }
 animateCursor();
-document.querySelectorAll('a, button, .sale-card, .work-card, .case-card, .team-card, .contact-item, .nav-btn, .lightbox-close, .modal-close').forEach(el => {
+document.querySelectorAll('a, button, .sale-card, .work-card, .case-card, .team-card, .contact-item, .nav-btn, .lightbox-close, .modal-close, .hero-tag, .skill-tag').forEach(el => {
   el.addEventListener('mouseenter', () => cursorOutline.classList.add('hover'));
   el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover'));
   el.addEventListener('mousedown', () => cursorOutline.classList.add('click'));
