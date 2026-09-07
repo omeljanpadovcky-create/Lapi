@@ -1,9 +1,9 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LAPI — Shopify Developer Portfolio</title>
+<title>LAPI — Shopify</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -135,15 +135,15 @@ section{position:relative;z-index:1;padding:120px 0;}section:first-of-type{paddi
 .team-label{color:var(--text-dim);text-transform:uppercase;font-size:10.5px;letter-spacing:1px;display:block;margin-bottom:4px;}
 .team-text{color:#a0a5ad;}
 .contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1000px;margin:0 auto;}
-.contact-item{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:36px 24px;text-align:center;transition:all .5s cubic-bezier(.16,1,.3,1);opacity:0;transform:translateY(40px);position:relative;overflow:hidden;}
+.contact-item{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:36px 24px;text-align:center;transition:all .5s cubic-bezier(.16,1,.3,1);opacity:0;transform:translateY(40px);position:relative;overflow:hidden;display:block;}
 .contact-item::before{content:'';position:absolute;inset:0;background:radial-gradient(300px circle at 50% 0%,rgba(94,200,255,0.08),transparent);opacity:0;transition:opacity .4s;}
 .contact-item:hover::before{opacity:1;}
 .contact-item:hover{transform:translateY(-8px);border-color:rgba(94,200,255,0.2);box-shadow:0 16px 50px rgba(94,200,255,0.06);}
 .contact-icon{width:56px;height:56px;border-radius:16px;background:rgba(94,200,255,0.06);border:1px solid rgba(94,200,255,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:24px;transition:all .4s;}
 .contact-item:hover .contact-icon{background:rgba(94,200,255,0.12);transform:scale(1.1) rotate(-5deg);box-shadow:0 0 20px rgba(94,200,255,0.1);}
-.contact-item a{font-size:15px;font-weight:600;word-break:break-all;color:var(--text);transition:color .3s;}
-.contact-item:hover a{color:var(--accent);}
-.contact-item span{font-size:11px;color:var(--text-dim);display:block;margin-top:8px;text-transform:uppercase;letter-spacing:1px;}
+.contact-item .contact-link{font-size:15px;font-weight:600;word-break:break-all;color:var(--text);transition:color .3s;display:block;}
+.contact-item:hover .contact-link{color:var(--accent);}
+.contact-item .contact-label{font-size:11px;color:var(--text-dim);display:block;margin-top:8px;text-transform:uppercase;letter-spacing:1px;}
 footer{position:relative;z-index:1;padding:60px 0 80px;text-align:center;border-top:1px solid var(--border);}
 .footer-text{font-size:13px;color:#444;letter-spacing:1px;}
 .footer-glow{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:400px;height:200px;background:radial-gradient(ellipse,rgba(94,200,255,0.05),transparent 70%);pointer-events:none;}
@@ -212,7 +212,7 @@ footer{position:relative;z-index:1;padding:60px 0 80px;text-align:center;border-
 @media(max-width:1024px){.sale-grid{grid-template-columns:repeat(2,1fr);}.metrics-grid{grid-template-columns:repeat(2,1fr);}.contact-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:768px){.site-nav{top:12px;padding:4px;}.nav-btn{padding:10px 16px;font-size:10px;letter-spacing:1px;}.hero-title{font-size:clamp(3rem,14vw,5rem);}.sale-grid{grid-template-columns:1fr;max-width:380px;margin:0 auto;}.works-grid{grid-template-columns:1fr;}.cases-grid,.team-grid{grid-template-columns:1fr;}.contact-grid{grid-template-columns:1fr;max-width:320px;}.metrics-grid{grid-template-columns:1fr 1fr;}.modal-body{flex-direction:column;}.modal-left{flex:none;border-right:none;border-bottom:1px solid var(--border);padding:32px 24px;}.modal-right{padding:32px 24px;}section{padding:80px 0;}}
 </style>
-<base target="_blank">
+
 <base target="_blank">
 </head>
 <body>
@@ -240,7 +240,7 @@ footer{position:relative;z-index:1;padding:60px 0 80px;text-align:center;border-
 
 <section id="home">
   <div class="hero-content">
-    <div class="hero-eyebrow">Shopify Developer Portfolio</div>
+    <div class="hero-eyebrow">Shopify Developer</div>
     <h1 class="hero-title">
       <span class="title-accent">L</span><span class="title-accent">A</span><span class="title-accent">P</span><span class="title-accent">I</span>
     </h1>
@@ -253,10 +253,7 @@ footer{position:relative;z-index:1;padding:60px 0 80px;text-align:center;border-
       <button class="hero-tag" onclick="document.getElementById('sale').scrollIntoView({behavior:'smooth'})">Conversion-Focused UX</button>
     </div>
   </div>
-  <div class="hero-scroll">
-    <span class="hero-scroll-text">Scroll</span>
-    <div class="hero-scroll-line"></div>
-  </div>
+
 </section>
 
 <section id="sale">
@@ -268,7 +265,7 @@ footer{position:relative;z-index:1;padding:60px 0 80px;text-align:center;border-
     <p style="text-align:center;color:var(--text-dim);margin-bottom:48px;font-size:15px;">Fully built, customizable websites. Buy, rebrand, launch.</p>
     <div class="sale-grid">
       <div class="sale-card-wrap">
-        <div class="sale-card" data-package="Landing Page" data-price="199" data-features="Single-page design|Responsive layout|Contact form|Smooth animations|SEO ready">
+        <div class="sale-card" data-package="Landing Page" data-price="149" data-features="Single-page design|Responsive layout|Contact form|Smooth animations|SEO ready">
           <div class="card-glow"></div>
           <div class="card-top"><span class="card-index">01</span><span class="card-arrow">↗</span></div>
           <div class="card-icon"><svg viewBox="0 0 64 64" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="12" width="48" height="40" rx="4"/><line x1="8" y1="22" x2="56" y2="22"/><circle cx="16" cy="17" r="1.5" fill="#5EC8FF" stroke="none"/><circle cx="24" cy="17" r="1.5" fill="#5EC8FF" stroke="none"/><circle cx="32" cy="17" r="1.5" fill="#5EC8FF" stroke="none"/><rect x="14" y="30" width="16" height="14" rx="2"/><line x1="38" y1="30" x2="50" y2="30"/><line x1="38" y1="36" x2="50" y2="36"/><line x1="38" y1="42" x2="46" y2="42"/></svg></div>
@@ -276,27 +273,27 @@ footer{position:relative;z-index:1;padding:60px 0 80px;text-align:center;border-
         </div>
       </div>
       <div class="sale-card-wrap">
-        <div class="sale-card" data-package="Portfolio Site" data-price="349" data-features="Multi-page structure|Gallery & projects|About section|Contact form|Blog ready">
+        <div class="sale-card" data-package="E-Commerce Basic" data-price="349" data-features="Shopify Basic Plan|Sell online, in person, and in AI chats|2% 3rd-party payment providers|Built-in AI assistant|Millions of tokens|Earn up to $4,500 in credits|For solo entrepreneurs|then €1/month for 3 months.">
           <div class="card-glow"></div>
           <div class="card-top"><span class="card-index">02</span><span class="card-arrow">↗</span></div>
           <div class="card-icon"><svg viewBox="0 0 64 64" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="48" height="48" rx="4"/><line x1="8" y1="20" x2="56" y2="20"/><line x1="20" y1="8" x2="20" y2="20"/><rect x="14" y="30" width="14" height="10" rx="2"/><rect x="36" y="30" width="14" height="10" rx="2"/><line x1="14" y1="48" x2="50" y2="48"/></svg></div>
-          <div><div class="card-title">Portfolio Site</div><div class="card-desc">Multi-page gallery, about, contact — ready for your work</div><div class="price-tag">$349</div></div>
+          <div><div class="card-title">E-Commerce Basic</div><div class="card-desc">Full shopify store</div><div class="price-tag">$349</div></div>
         </div>
       </div>
       <div class="sale-card-wrap">
-        <div class="sale-card" data-package="Business Site" data-price="499" data-features="Corporate pages|Services section|Team page|Blog setup|SEO optimized">
+        <div class="sale-card" data-package="E-Commerce Advanced" data-price="499" data-features="Shopify Advanced Plan|Everything in Basic|0.6% 3rd-party payment providers|Up to 15 staff accounts|Live 3rd-party shipping rates|Tailor your store by region|For global reach|then €1/month for 3 months.">
           <div class="card-glow"></div>
           <div class="card-top"><span class="card-index">03</span><span class="card-arrow">↗</span></div>
           <div class="card-icon"><svg viewBox="0 0 64 64" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16 H52 V48 H12 Z"/><path d="M12 24 L32 36 L52 24"/><line x1="20" y1="40" x2="28" y2="40"/><line x1="36" y1="40" x2="44" y2="40"/></svg></div>
-          <div><div class="card-title">Business Site</div><div class="card-desc">Corporate multi-page with services, team, blog setup</div><div class="price-tag">$499</div></div>
+          <div><div class="card-title">E-Commerce Advanced</div><div class="card-desc">Full shopify store</div><div class="price-tag">$499</div></div>
         </div>
       </div>
       <div class="sale-card-wrap">
-        <div class="sale-card" data-package="E-Commerce" data-price="799" data-features="Full store template|Cart & checkout|Product pages|Payment ready|Mobile optimized">
+        <div class="sale-card" data-package="E-Commerce Plus" data-price="3000" data-features="Shopify Plus Plan|Everything in Advanced|0.2% 3rd-party payment providers|Unlimited staff accounts|Fully customizable checkout|Up to 200 POS Pro locations|Unlimited B2B catalogs|Priority 24/7 phone support">
           <div class="card-glow"></div>
           <div class="card-top"><span class="card-index">04</span><span class="card-arrow">↗</span></div>
           <div class="card-icon"><svg viewBox="0 0 64 64" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="14" width="44" height="36" rx="4"/><line x1="10" y1="26" x2="54" y2="26"/><line x1="22" y1="36" x2="42" y2="36"/><line x1="22" y1="42" x2="38" y2="42"/><circle cx="46" cy="20" r="2" fill="#5EC8FF" stroke="none"/></svg></div>
-          <div><div class="card-title">E-Commerce</div><div class="card-desc">Full store template with cart, checkout & product pages</div><div class="price-tag">$799</div></div>
+          <div><div class="card-title">E-Commerce Plus</div><div class="card-desc">Full shopify store</div><div class="price-tag">$3000</div></div>
         </div>
       </div>
     </div>
@@ -321,8 +318,8 @@ footer{position:relative;z-index:1;padding:60px 0 80px;text-align:center;border-
       </div>
       <div class="metrics-grid">
         <div class="metric-card"><span class="metric-num" data-target="7">0</span><span class="metric-label">Stores launched</span></div>
-        <div class="metric-card"><span class="metric-num" data-target="100">0</span><span class="metric-label">Themes customized</span></div>
-        <div class="metric-card"><span class="metric-num" data-target="100">0</span><span class="metric-label">Apps integrated</span></div>
+        <div class="metric-card"><span class="metric-num" data-target="34">0</span><span class="metric-label">Themes customized</span></div>
+        <div class="metric-card"><span class="metric-num" data-target="19">0</span><span class="metric-label">Apps integrated</span></div>
         <div class="metric-card"><span class="metric-num" data-target="2">0</span><span class="metric-label">Years of experience</span></div>
       </div>
     </section>
@@ -352,21 +349,25 @@ footer{position:relative;z-index:1;padding:60px 0 80px;text-align:center;border-
         <h2 class="sec-title">Selected <span>Projects</span></h2>
       </div>
       <div class="works-grid" id="worksGrid">
-        <a class="work-card" href="https://lapi-byrkyuir.myshopify.com/">
-          <div class="work-images" data-full="images/project-1.jpg"><img src="images/project-1.jpg" alt="Lapi Books"><span class="work-badge">Store</span></div>
+        <a class="work-card" href="https://lapi-byrkyuir.myshopify.com/" target="_blank" rel="noopener noreferrer">
+          <div class="work-images" data-full="Image/project-1.jpg"><img src="Image/project-1.jpg" alt="Lapi Books" loading="lazy" onerror="this.style.opacity=0;this.parentElement.style.background=\'#0a0a0f\';this.parentElement.insertAdjacentHTML(\'beforeend\', \'<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#444;font-size:14px;>📷 Image</div>\')"><span class="work-badge">Store</span></div>
           <div class="work-info"><h3>Lapi Books</h3><span class="work-type">Store Setup & Theme Customization</span><p>An online bookstore built from scratch on Shopify.</p></div>
         </a>
-        <a class="work-card" href="https://lapi-hkaqrjsq.myshopify.com/">
-          <div class="work-images" data-full="images/project-2.jpg"><img src="images/project-2.jpg" alt="Dog Care"><span class="work-badge">Liquid</span></div>
+        <a class="work-card" href="https://lapi-hkaqrjsq.myshopify.com/" target="_blank" rel="noopener noreferrer">
+          <div class="work-images" data-full="Image/project-2.jpg"><img src="Image/project-2.jpg" alt="Dog Care" loading="lazy" onerror="this.style.opacity=0;this.parentElement.style.background=\'#0a0a0f\';this.parentElement.insertAdjacentHTML(\'beforeend\', \'<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#444;font-size:14px;>📷 Image</div>\')"><span class="work-badge">Liquid</span></div>
           <div class="work-info"><h3>Dog Care</h3><span class="work-type">Liquid Customization</span><p>A dark, cinematic pet-tech storefront.</p></div>
         </a>
-        <a class="work-card" href="https://lapi-ouh7uf6x.myshopify.com/">
-          <div class="work-images" data-full="images/project-3.jpg"><img src="images/project-3.jpg" alt="3D Car Parts"><span class="work-badge">Premium</span></div>
+        <a class="work-card" href="https://lapi-ouh7uf6x.myshopify.com/" target="_blank" rel="noopener noreferrer">
+          <div class="work-images" data-full="Image/project-3.jpg"><img src="Image/project-3.jpg" alt="3D Car Parts" loading="lazy" onerror="this.style.opacity=0;this.parentElement.style.background=\'#0a0a0f\';this.parentElement.insertAdjacentHTML(\'beforeend\', \'<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#444;font-size:14px;>📷 Image</div>\')"><span class="work-badge">Premium</span></div>
           <div class="work-info"><h3>3D Car Parts</h3><span class="work-type">Liquid Customization</span><p>A premium automotive parts store.</p></div>
         </a>
-        <a class="work-card" href="https://lapi-pyaftude.myshopify.com/">
-          <div class="work-images" data-full="images/project-4.jpg"><img src="images/project-4.jpg" alt="Foyer Lapi"><span class="work-badge">Setup</span></div>
+        <a class="work-card" href="https://lapi-pyaftude.myshopify.com/" target="_blank" rel="noopener noreferrer">
+          <div class="work-images" data-full="Image/project-4.jpg"><img src="Image/project-4.jpg" alt="Foyer Lapi" loading="lazy" onerror="this.style.opacity=0;this.parentElement.style.background=\'#0a0a0f\';this.parentElement.insertAdjacentHTML(\'beforeend\', \'<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#444;font-size:14px;>📷 Image</div>\')"><span class="work-badge">Setup</span></div>
           <div class="work-info"><h3>Foyer Lapi</h3><span class="work-type">Store Setup</span><p>A cozy home-goods store.</p></div>
+        </a>
+        <a class="work-card" href="https://lapi-z6ezsnu5.myshopify.com/" target="_blank" rel="noopener noreferrer">
+          <div class="work-images" data-full="Image/project-5.jpg"><img src="Image/project-5.jpg" alt="Glow Beauty" loading="lazy" onerror="this.style.opacity=0;this.parentElement.style.background=\'#0a0a0f\';this.parentElement.insertAdjacentHTML(\'beforeend\', \'<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#444;font-size:14px;>📷 Image</div>\')"><span class="work-badge">Beauty</span></div>
+          <div class="work-info"><h3>3d Lapi</h3><span class="work-type">Store Setup & Customization</span><p>A minimal beauty store with subscription features and curated collections.</p></div>
         </a>
       </div>
     </section>
@@ -378,7 +379,7 @@ footer{position:relative;z-index:1;padding:60px 0 80px;text-align:center;border-
       </div>
       <div class="cases-grid" id="casesGrid">
         <div class="case-card">
-          <div class="case-avatar" data-full="images/case-1.jpg" style="background-image:url(images/case-1.jpg);background-size:cover;background-position:center;"></div>
+          <div class="case-avatar" data-full="Image/case-1.jpg" style="background-image:url(Image/case-1.jpg);background-size:cover;background-position:center;"></div>
           <div class="case-body">
             <div class="case-name">Anna</div><span class="case-role">Fashion & Apparel</span>
             <div class="case-row"><span class="case-label">Problem</span><span class="case-text">Slow page load & poor mobile UX, 4.2s load time</span></div>
@@ -387,7 +388,7 @@ footer{position:relative;z-index:1;padding:60px 0 80px;text-align:center;border-
           </div>
         </div>
         <div class="case-card">
-          <div class="case-avatar" data-full="images/case-2.jpg" style="background-image:url(images/case-2.jpg);background-size:cover;background-position:center;"></div>
+          <div class="case-avatar" data-full="Image/case-2.jpg" style="background-image:url(Image/case-2.jpg);background-size:cover;background-position:center;"></div>
           <div class="case-body">
             <div class="case-name">Mark</div><span class="case-role">Health & Supplements</span>
             <div class="case-row"><span class="case-label">Problem</span><span class="case-text">Low checkout completion rate, only 18% finished</span></div>
@@ -396,16 +397,16 @@ footer{position:relative;z-index:1;padding:60px 0 80px;text-align:center;border-
           </div>
         </div>
         <div class="case-card">
-          <div class="case-avatar" data-full="images/case-3.jpg" style="background-image:url(images/case-3.jpg);background-size:cover;background-position:center;"></div>
+          <div class="case-avatar" data-full="Image/case-3.jpg" style="background-image:url(Image/case-3.jpg);background-size:cover;background-position:center;"></div>
           <div class="case-body">
-            <div class="case-name">Mark</div><span class="case-role">Health & Supplements</span>
-            <div class="case-row"><span class="case-label">Problem</span><span class="case-text">Low checkout completion rate, only 18% finished</span></div>
+            <div class="case-name">Ivan</div><span class="case-role">Health</span>
+            <div class="case-row"><span class="case-label">Problem</span><span class="case-text">Low checkout completion rate, only 9% finished</span></div>
             <div class="case-row"><span class="case-label">Solution</span><span class="case-text">Simplified checkout + trust badges + express pay</span></div>
-            <div class="case-row"><span class="case-label">Result</span><span class="case-text">Checkout completion ↑ 42%</span></div>
+            <div class="case-row"><span class="case-label">Result</span><span class="case-text">Checkout completion ↑ 30%</span></div>
           </div>
         </div>
         <div class="case-card">
-          <div class="case-avatar" data-full="images/case-4.jpg" style="background-image:url(images/case-4.jpg);background-size:cover;background-position:center;"></div>
+          <div class="case-avatar" data-full="Image/case-4.jpeg" style="background-image:url(Image/case-4.jpeg);background-size:cover;background-position:center;"></div>
           <div class="case-body">
             <div class="case-name">Vadim</div><span class="case-role">Baby products</span>
             <div class="case-row"><span class="case-label">Problem</span><span class="case-text">Abandoned carts at 78%, no email recovery</span></div>
@@ -416,23 +417,37 @@ footer{position:relative;z-index:1;padding:60px 0 80px;text-align:center;border-
       </div>
     </section>
 
-    <section style="padding:0 0 100px;">
-      <div class="sec-header">
-        <div class="sec-eyebrow">People</div>
-        <h2 class="sec-title">The <span>Team</span></h2>
-      </div>
-      <div class="team-grid" id="teamGrid">
-        <div class="team-card">
-          <div class="team-avatar" data-full="images/team-1.jpg" style="background-image:url(images/team-1.jpg);background-size:cover;background-position:center;"></div>
-          <div class="team-name">Omelian-Tadei</div><span class="team-role">Shopify developer</span>
-          <div class="team-row"><span class="team-label">App and store development</span><span class="team-text">My area of responsibility is primarily creating turnkey Shopify stores.</span></div>
-          <div class="team-row"><span class="team-label">How I got into the field</span><span class="team-text">I had been looking for a way to combine creativity and opportunities.</span></div>
-        </div>
-        <div class="team-card">
-          <div class="team-avatar" data-full="images/team-2.jpg" style="background-image:url(images/team-2.jpg);background-size:cover;background-position:center;"></div>
-          <div class="team-name">Olesia</div><span class="team-role">SMM Shopify specialist</span>
-          <div class="team-row"><span class="team-label">Runs a blog</span><span class="team-text">Responsibility area: running a blog with beautiful creatives.</span></div>
-        </div>
+  <section style="padding:0 0 100px;">
+  <div class="sec-header">
+    <div class="sec-eyebrow">People</div>
+    <h2 class="sec-title">The <span>Team</span></h2>
+  </div>
+  <div class="team-grid" id="teamGrid">
+    <div class="team-card">
+      <div class="team-avatar" data-full="Image/team-1.jpg" style="background-image:url(Image/team-1.jpg);background-size:cover;background-position:center;"></div>
+      <div class="team-name">Omelian-Tadei</div><span class="team-role">Shopify developer</span>
+      <div class="team-row"><span class="team-label">App and store development</span><span class="team-text">My area of responsibility is primarily creating turnkey Shopify stores.</span></div>
+      <div class="team-row"><span class="team-label">How I got into the field</span><span class="team-text">I had been looking for a way to combine creativity and opportunities.</span></div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" data-full="Image/team-2.jpg" style="background-image:url(Image/team-2.jpg);background-size:cover;background-position:center;"></div>
+      <div class="team-name">Olesia</div><span class="team-role">SMM Shopify specialist</span>
+      <div class="team-row"><span class="team-label">Runs a blog</span><span class="team-text">Responsibility area: running a blog with beautiful creatives.</span></div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" data-full="Image/team-3.jpg" style="background-image:url(Image/team-3.jpg);background-size:cover;background-position:center;"></div>
+      <div class="team-name">Oleksandr</div><span class="team-role">Frontend Developer</span>
+      <div class="team-row"><span class="team-label">Interface & interactions</span><span class="team-text">Building responsive, animation-rich frontends with React, GSAP and Three.js.</span></div>
+      <div class="team-row"><span class="team-label">Tech stack</span><span class="team-text">JavaScript, TypeScript, React, Tailwind, WebGL.</span></div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" data-full="Image/team-4.jpg" style="background-image:url(Image/team-4.jpg);background-size:cover;background-position:center;"></div>
+      <div class="team-name">Nazar</div><span class="team-role">UI/UX Designer</span>
+      <div class="team-row"><span class="team-label">Design & prototyping</span><span class="team-text">Crafting conversion-focused interfaces, wireframes and high-fidelity prototypes in Figma.</span></div>
+      <div class="team-row"><span class="team-label">Approach</span><span class="team-text">Data-driven design with A/B testing and user-journey optimization.</span></div>
+    </div>
+  </div>
+</section>
       </div>
     </section>
   </div>
@@ -445,26 +460,26 @@ footer{position:relative;z-index:1;padding:60px 0 80px;text-align:center;border-
       <h2 class="sec-title">Contact</h2>
     </div>
     <div class="contact-grid">
-      <div class="contact-item">
-        <div class="contact-icon">📧</div>
-        <a href="mailto:omeljanpadovcky@gmail.com">omeljanpadovcky@gmail.com</a>
-        <span>Email</span>
-      </div>
-      <div class="contact-item">
+      <a class="contact-item" href="https://www.artstation.com/omelyan_padovsky" target="_blank" rel="noopener noreferrer">
+        <div class="contact-icon">💼</div>
+        <span class="contact-link">Portfolio</span>
+        <span class="contact-label">Portfolio</span>
+      </a>
+      <a class="contact-item" href="https://www.linkedin.com/in/omelian-padovsky-996565311/" target="_blank" rel="noopener noreferrer">
         <div class="contact-icon">💬</div>
-        <a href="https://www.linkedin.com/in/omelian-padovsky-996565311/">LinkedIn</a>
-        <span>LinkedIn</span>
-      </div>
-      <div class="contact-item">
+        <span class="contact-link">LinkedIn</span>
+        <span class="contact-label">LinkedIn</span>
+      </a>
+      <a class="contact-item" href="https://www.instagram.com/omelian_3d?igsi=eTEwbTF5cHUxdXUx" target="_blank" rel="noopener noreferrer">
         <div class="contact-icon">📷</div>
-        <a href="https://www.instagram.com/omelian_3d?igsi=eTEwbTF5cHUxdXUx">Instagram</a>
-        <span>Instagram</span>
-      </div>
-      <div class="contact-item">
+        <span class="contact-link">Instagram</span>
+        <span class="contact-label">Instagram</span>
+      </a>
+      <a class="contact-item" href="https://github.com/omeljanpadovcky-create" target="_blank" rel="noopener noreferrer">
         <div class="contact-icon">💻</div>
-        <a href="https://github.com/omeljanpadovcky-create">GitHub</a>
-        <span>GitHub</span>
-      </div>
+        <span class="contact-link">GitHub</span>
+        <span class="contact-label">GitHub</span>
+      </a>
     </div>
   </div>
 </section>
@@ -476,7 +491,11 @@ footer{position:relative;z-index:1;padding:60px 0 80px;text-align:center;border-
 
 <div class="lightbox-overlay" id="lightbox">
   <span class="lightbox-close" id="lightboxClose">&times;</span>
-  <img id="lightboxImg" src="" alt="Full image">
+  <img id="lightboxImg" src="" alt="Full image" style="transition:all .5s cubic-bezier(.16,1,.3,1);" onerror="this.style.display='none';document.getElementById('lightboxPlaceholder').style.display='flex';">
+  <div id="lightboxPlaceholder" style="display:none;flex-direction:column;align-items:center;justify-content:center;gap:20px;color:var(--text-dim);font-size:15px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+    <div style="width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#a78bfa);display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:700;color:#050508;box-shadow:0 0 40px rgba(94,200,255,0.3);">📷</div>
+    <span>Image not available</span>
+  </div>
 </div>
 
 <div class="modal-overlay" id="orderModal">
@@ -525,12 +544,20 @@ footer{position:relative;z-index:1;padding:60px 0 80px;text-align:center;border-
             <input type="text" name="card_number" placeholder="Card number" maxlength="19">
             <span class="input-icon">🔒</span>
           </div>
+          <div class="form-group input-icon-wrap">
+            <input type="text" name="card_number" placeholder="Card number" maxlength="19">
+            <span class="input-icon">❓</span>
+          </div>
           <div class="form-row">
             <div class="form-group"><input type="text" name="expiry" placeholder="Expiration date (MM / YY)" maxlength="7"></div>
             <div class="form-group input-icon-wrap">
               <input type="text" name="cvv" placeholder="Security code" maxlength="3">
               <span class="input-icon">❓</span>
             </div>
+             </div>
+          <div class="form-group input-icon-wrap">
+            <input type="text" name="card_number" placeholder="Ask" maxlength="19">
+            <span class="input-icon">❓</span>
           </div>
           <div class="form-group input-icon-wrap">
             <input type="text" name="card_name" placeholder="Name on card" value="Omelian Padovsky">
@@ -635,7 +662,6 @@ function initAnimations() {
   gsap.from('.hero-title .title-accent', { opacity: 0, y: 100, rotateX: 90, duration: 1.2, stagger: 0.1, delay: 0.5, ease: 'power3.out' });
   gsap.to('.hero-subtitle', { opacity: 1, y: 0, duration: 1, delay: 0.9, ease: 'power3.out' });
   gsap.to('.hero-tags', { opacity: 1, y: 0, duration: 1, delay: 1.1, ease: 'power3.out' });
-  gsap.to('.hero-scroll', { opacity: 1, duration: 1, delay: 1.5, ease: 'power3.out' });
 
   // Sale cards
   gsap.utils.toArray('.sale-card-wrap').forEach((card, i) => {
@@ -718,9 +744,20 @@ const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
 const lightboxClose = document.getElementById('lightboxClose');
 document.querySelectorAll('.work-images[data-full], .case-avatar[data-full], .team-avatar[data-full]').forEach(el => {
-  el.addEventListener('click', () => { lightboxImg.src = el.dataset.full; lightbox.classList.add('active'); });
+  el.addEventListener('click', () => {
+    if(!el.dataset.full || el.dataset.full.trim() === '') return;
+    lightboxImg.style.display = '';
+    document.getElementById('lightboxPlaceholder').style.display = 'none';
+    lightboxImg.src = el.dataset.full;
+    lightbox.classList.add('active');
+  });
 });
-function closeLightbox(){ lightbox.classList.remove('active'); lightboxImg.src = ''; }
+// Preload images to check if they exist
+document.querySelectorAll('[data-full]').forEach(el => {
+  const img = new Image();
+  img.src = el.dataset.full;
+});
+function closeLightbox(){ lightbox.classList.remove('active'); setTimeout(()=>{ lightboxImg.src = ''; lightboxImg.style.display = ''; document.getElementById('lightboxPlaceholder').style.display = 'none'; }, 300); }
 lightboxClose.addEventListener('click', closeLightbox);
 lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
 
