@@ -17,11 +17,21 @@ catch {
 }
 
 try {
-    $remote = Invoke-WebRequest -UseBasicParsing -Uri ($PublicUrl + "/healthz") -TimeoutSec 20
+    $headers = @{
+        "X-Pinggy-No-Screen" = "1"
+        "User-Agent" = "lapi-webhook-check/1.0"
+    }
+    $remote = Invoke-WebRequest -UseBasicParsing -Uri ($PublicUrl + "/healthz") -Headers $headers -TimeoutSec 20
     Write-Host ("Pinggy tunnel: HTTP " + $remote.StatusCode) -ForegroundColor Green
 }
 catch {
-    throw "Pinggy tunnel is not reachable. Keep the Pinggy window open and try again."
+    Write-Host "Pinggy browser screening may block PowerShell's default request, but the tunnel can still work for webhooks." -ForegroundColor Yellow
+    Write-Host "Retrying with curl and the Pinggy no-screen header..." -ForegroundColor Cyan
+    $status = & curl.exe -sS -o NUL -w "%{http_code}" -H "X-Pinggy-No-Screen: 1" -A "lapi-webhook-check/1.0" ($PublicUrl + "/healthz")
+    if ($LASTEXITCODE -ne 0 -or $status -ne "200") {
+        throw ("Pinggy tunnel check failed. HTTP status: " + $status + ". Keep the Pinggy window open.")
+    }
+    Write-Host ("Pinggy tunnel: HTTP " + $status) -ForegroundColor Green
 }
 
 $containers = @(docker ps -a --format "{{.Names}}")
