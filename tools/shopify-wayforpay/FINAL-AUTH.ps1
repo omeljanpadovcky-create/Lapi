@@ -46,7 +46,7 @@ $listener = $null
 $client = $null
 
 try {
-  $ClientSecret = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($ptr)
+  $ClientSecret = ([Runtime.InteropServices.Marshal]::PtrToStringBSTR($ptr)).Trim()
   $listener = [System.Net.Sockets.TcpListener]::new([System.Net.IPAddress]::Loopback,8765)
   $listener.Start()
 
@@ -80,12 +80,32 @@ try {
   if ($q["state"] -ne $state) { throw "OAuth state mismatch." }
   if (-not $q["code"]) { throw "No Shopify authorization code returned." }
 
-  $tok = Invoke-RestMethod -Method Post -Uri "https://$ShopDomain/admin/oauth/access_token" -ContentType "application/x-www-form-urlencoded" -Body @{
-    client_id = $ClientId
-    client_secret = $ClientSecret
-    code = $q["code"]
-    expiring = "0"
+  $form = "client_id=" + [Uri]::EscapeDataString($ClientId) +
+    "&client_secret=" + [Uri]::EscapeDataString($ClientSecret) +
+    "&code=" + [Uri]::EscapeDataString($q["code"]) +
+    "&expiring=0"
+
+  try {
+    $response = Invoke-WebRequest -UseBasicParsing -Method Post -Uri "https://$ShopDomain/admin/oauth/access_token" -Headers @{ Accept = "application/json" } -ContentType "application/x-www-form-urlencoded" -Body $form
+    $tok = $response.Content | ConvertFrom-Json
   }
+  catch {
+    $body = $null
+    try {
+      if ($_.Exception.Response) {
+        $rs = $_.Exception.Response.GetResponseStream()
+        if ($rs) {
+          $rr = New-Object IO.StreamReader($rs)
+          $body = $rr.ReadToEnd()
+        }
+      }
+    } catch {}
+    Write-Host ""
+    Write-Host "SHOPIFY TOKEN ERROR:" -ForegroundColor Red
+    if ($body) { Write-Host $body -ForegroundColor Yellow } else { Write-Host $_.Exception.Message -ForegroundColor Yellow }
+    throw "Token exchange failed. Copy ONLY the SHOPIFY TOKEN ERROR text above. Do not send your Client secret."
+  }
+
   if (-not $tok.access_token) { throw "No Shopify access token returned." }
 
   $AccessToken = $tok.access_token
